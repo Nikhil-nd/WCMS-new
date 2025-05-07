@@ -2,6 +2,8 @@ package org.nwf.wcms.Entity;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -19,6 +21,7 @@ public class Species {
  @Column(name="endangered",nullable=false)
  private boolean endangered;
  @OneToMany(mappedBy="species")
+ @JsonBackReference
  private List<Observation> observation;
  public int getId() {
     return id;
